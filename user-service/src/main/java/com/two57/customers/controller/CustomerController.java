@@ -23,7 +23,6 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public Mono<Customer> findById(@PathVariable Integer id) {
-        return Mono.error(new RuntimeException(String.format("Unable to find customer: %s", id)));
-        //return repo.findById(id);
+        return repo.findById(id);
     }
 }
