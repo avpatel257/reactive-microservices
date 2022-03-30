@@ -24,4 +24,10 @@ public class PetController {
     public Mono<PetResponse> findById(@PathVariable Integer id) {
         return service.findById(id);
     }
+
+    @GetMapping("/{id}/visits")
+    public Mono<PetResponse> findVetVisitsByPetId(@PathVariable Integer id) {
+        return service.findVetVisitsByPetId(id);
+    }
+
 }

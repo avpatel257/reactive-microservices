@@ -20,6 +20,7 @@ public class VetController {
     public Flux<Vet> findAll() {
         return repo.findAll();
     }
+
     @GetMapping("/{id}")
     public Mono<Vet> findById(@PathVariable Integer id) {
         return repo.findById(id);

@@ -17,6 +17,8 @@ import reactor.netty.http.client.HttpClient;
 public class Config {
     @Value("${svc.customer.url}")
     private String CUST_SVC_URL;
+    @Value("${svc.vet.url}")
+    private String VET_SVC_URL;
 
 
     @Bean
@@ -35,6 +37,15 @@ public class Config {
     public WebClient customerService() {
         return WebClient.builder()
                 .baseUrl(CUST_SVC_URL)
+                .clientConnector(clientHttpConnector())
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .build();
+    }
+
+    @Bean
+    public WebClient vetService() {
+        return WebClient.builder()
+                .baseUrl(VET_SVC_URL)
                 .clientConnector(clientHttpConnector())
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();

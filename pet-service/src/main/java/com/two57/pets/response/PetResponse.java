@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +16,7 @@ public class PetResponse extends BaseResponse {
     private LocalDate birthDate;
     private String type;
     private Customer owner;
+    private List<VisitResponse> visits;
 
     public PetResponse(Pet pet, Customer customer) {
         this.id = pet.id();

@@ -9,3 +9,11 @@ CREATE TABLE pet (
 );
 CREATE INDEX pets_name ON pet (name);
 CREATE INDEX pets_type ON pet (type);
+
+CREATE TABLE visit (
+  id          INTEGER IDENTITY PRIMARY KEY,
+  pet_id      INTEGER,
+  visit_date  DATE,
+  vet_id      INTEGER,
+  description VARCHAR(255)
+);
